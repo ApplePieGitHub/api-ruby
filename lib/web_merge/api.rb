@@ -64,7 +64,7 @@ module WebMerge
     def merge_document(doc_id, doc_key, field_mappings, options = {}, &block)
       query = ""
       if options.present?
-        query = "?" + URI.encode_www_form(options)
+        query = "?" + URI.encode_www_form_component(options)
       end
       post("#{WebMerge::Constants::MERGE_ENDPOINT}/#{doc_id}/#{doc_key}#{query}", field_mappings, &block)
     end
